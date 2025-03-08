@@ -1,0 +1,75 @@
+body {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  background-color: #000;
+}
+
+.notification {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  column-gap: 16px;
+  max-width: 300px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: translateY(20px);
+  background-color: #111;
+  color: #ededed;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: slideIn 0.15s ease-out forwards,
+             slideOut 0.15s ease-in 3s forwards;
+}
+.notification:hover {
+  animation-play-state: paused;
+}
+.notification p {
+  font-size: 14px;
+  color: #999;
+  margin-block: 8px 24px;
+}
+.notification__button-wrapper {
+  display: flex;
+  column-gap: 12px;
+}
+.button {
+  width: 80px;
+  color: #ededed;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.button--primary {
+  background-color: #ededed;
+  color: #0a0a0a;
+}
+.button--secondary {
+  background-color: #0a0a0a;
+  color: #ededed;
+}
+.button--primary:hover {
+  background-color: #ccc;
+}
+.button--secondary:hover {
+  background-color: #1f1f1f;
+}
+@keyframes slideIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  95% {
+    transform: translateX(calc(100% + 20px));
+  }
+  to {
+    opacity: 0;
+  }
+}
